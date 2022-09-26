@@ -17,8 +17,8 @@ const getPokemonsApi = async () => {
                 attack: pokemon.data.stats[1].base_stat,
                 defense: pokemon.data.stats[2].base_stat,
                 speed: pokemon.data.stats[5].base_stat,
-                height: pokemon.data.stats.height,
-                weight: pokemon.data.stats.weight,
+                height: pokemon.data.height,
+                weight: pokemon.data.weight,
                 types: pokemon.data.types.map(e=> {
                     return e.type.name
                 }),
@@ -63,7 +63,7 @@ const getPokeById = async (id) => {
       const pokemons = await getAllPokemons();
       if (id) {
           let pokeId = pokemons.filter(e => e.id.toString() === id.toString())
-          //console.log(dogId)
+          //console.log(pokeId)
           return pokeId;
       } else {
           console.log('Pokemon not found')
