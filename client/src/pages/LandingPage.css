@@ -1,0 +1,8 @@
+.fondo{
+    background-image: url('https://fotografias-neox.atresmedia.com/clipping/cmsimages01/2021/06/30/4BB88F22-D7A4-4556-97E6-73167B40ADA4/98.jpg?crop=1920,1080,x0,y0&width=1900&height=1069&optimize=high&format=webply');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    color:white;
+    display: grid;  
+}
