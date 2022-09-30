@@ -2,6 +2,7 @@ import { GET_ALL_POKEMONS, GET_POKEMON_NAME, GET_DETAIL, GET_ALL_TYPES, CREATE_P
 
 const initialState = {
     pokemons: [],
+    allPokemons: [],
     detail: [],
     types: [],
     //filtros: [],
@@ -14,7 +15,8 @@ export default function rootReducer(state = initialState, action) {
         case GET_ALL_POKEMONS:
             return {
                 ...state,
-                pokemons: action.payload
+                pokemons: action.payload,
+                allPokemons: action.payload,
             }
         case GET_POKEMON_NAME:
             return {
