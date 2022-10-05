@@ -12,7 +12,7 @@ export default function AllCards() {
     const dispatch = useDispatch()
     //console.log(estadoPokes)
     const [currentPage, setCurrentPage] = useState(1) // pagina actual, setee pag act. Pagina 1
-    const [cardsPerPage, _setCardsPerPage] = useState(12) // card por pagina (9)
+    const [cardsPerPage, _setCardsPerPage] = useState(9) // card por pagina (12)
     const indexOfLastCard = currentPage * cardsPerPage // 9 indice de la ult card de la pag
     const indexOfFirstCard = indexOfLastCard - cardsPerPage // 0 indice de la primer card de la pag
     const currentCards = allPokemons.slice(indexOfFirstCard, indexOfLastCard)

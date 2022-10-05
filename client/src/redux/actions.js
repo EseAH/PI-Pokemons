@@ -38,7 +38,7 @@ export function getPokemonDetail(id){
     return async function(dispatch) {
         try {
             let json = await axios.get(`http://localhost:3001/pokemons/${id}`)
-            console.log(json)
+            //console.log(json)
             return dispatch ({
                 type: GET_DETAIL,
                 payload: json.data
@@ -53,6 +53,7 @@ export function getTypes(){
     return async function(dispatch){
         try {
             let json = await axios("http://localhost:3001/types")
+            console.log(json)
             return dispatch({
                 type: GET_ALL_TYPES,
                 payload: json.data

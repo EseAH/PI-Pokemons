@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { getPokemonDetail } from "../redux/actions";
+import Nav from "../components/Nav/Nav";
 
 export default function Detail() {
     const dispatch = useDispatch()
@@ -14,6 +15,7 @@ export default function Detail() {
     
     return (
         <>
+            <Nav/>
             {
                 pokeDetail.length > 0 ? 
                 <div className="details">
