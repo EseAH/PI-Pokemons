@@ -4,6 +4,7 @@ import AllCards from "../components/Cards/Cardss";
 import SearchBar from "../components/SearchBar";
 import Nav from "../components/Nav/Nav";
 import styles from "./Home.module.css"
+import Filters from "../components/Filter";
 
 export default function Home() {
     return(
@@ -11,9 +12,9 @@ export default function Home() {
             <Nav/>
             <h2>HOME</h2>
             <SearchBar/>
+            
             <AllCards/>
             <Link to="/create"><button>To create</button></Link>
-            <Link to="/types"><button>Types</button></Link>
         </div>
     )
 }

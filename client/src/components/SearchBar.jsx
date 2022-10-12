@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getPokemonName } from "../redux/actions";
+import { getPokemonName, setCurrentPage } from "../redux/actions";
 
 export default function SearchBar() {
     const dispatch = useDispatch()
@@ -15,6 +15,8 @@ export default function SearchBar() {
         e.preventDefault()
         if (!name) return alert("Enter pokemon name")
         dispatch(getPokemonName(name))
+        setName("")
+        dispatch(setCurrentPage(1))
     }
     return (
         <div>

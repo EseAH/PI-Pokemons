@@ -1,28 +1,51 @@
 import React from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { getPokemonName, getTypes } from "../redux/actions";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getTypes, filterType, orderName } from "../redux/actions";
 
-export default function FilterType() {
+export default function Filters({setCurrentPage, setOrder}) {
     const dispatch = useDispatch()
-    const [name, setName] = useState("")
+    const allTypes = useSelector((state) => state.types)
 
-    const handleInputChange = (e) => {
+    function handleOrderName(e) {
+        e.preventDefault();
+        dispatch(orderName(e.target.value));
+        setCurrentPage(1);
+        setOrder(e.target.value);
+      };
+
+    const handleFilterType = (e) => {
         e.preventDefault()
-        setName(e.target.value)
+        dispatch(filterType(e.target.value)); 
+        //setCurrentPage(1);
     }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if (!name) return alert("Enter pokemon name")
-        dispatch(getPokemonName(name))
-    }
+    useEffect(() => {
+        dispatch(getTypes())
+    }, [dispatch])
+    
     return (
         <div>
-            <input type='text'
-            placeholder="Search..."
-            onChange={(e) => handleInputChange(e)}
-            />
-            <button type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
+            <div>
+                <label>Sort name </label>
+                <select onChange={e => handleOrderName(e)}>
+                    <option hidden selected>Alphabetic order:</option>
+                    <option value="asc">A - Z</option>
+                    <option value="desc">Z - A</option>
+                </select>
+            </div>
+            <div>
+            <label>Types </label>
+            <select onChange={e => handleFilterType(e)}>
+                <option value='all'>ALL</option>
+                {
+                allTypes?.map(e => {
+                    return (
+                    <option key={e.id} value={e.name}>{e.name.toUpperCase()}</option>
+                    )
+                })
+                }
+            </select>
+            </div>
         </div>
     )
 }

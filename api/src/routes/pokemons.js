@@ -10,7 +10,7 @@ router.get('/', async (req, res, next) => {
     try {
         let totalPokemons = await getAllPokemons()
     if (name) {
-      let pokemonName = await totalPokemons.filter((d) => d.name.toLowerCase() === name.toLocaleLowerCase()) //hacer .includes() para coincidencia no exacta
+      let pokemonName = await totalPokemons.filter((d) => d.name.toLowerCase().includes(name.toLocaleLowerCase())) //
       pokemonName.length ? res.status(200).send(pokemonName) : res.status(404).send('Pokemon not found')
     } else {
       res.status(200).send(totalPokemons)

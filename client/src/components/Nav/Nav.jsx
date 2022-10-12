@@ -16,11 +16,6 @@ export default function Nav() {
           <button className={style.nav}>CREATE</button>
         </Link>
       </li>
-      <li>
-        <Link to="/types">
-          <button className={style.nav}>TYPES</button>
-        </Link>
-      </li>
     </ul>
     </div>
   )
